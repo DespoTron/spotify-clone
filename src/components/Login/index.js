@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import { loginUrl } from '../../service/spotify'
 
 export default () => {
   return (
@@ -10,7 +11,7 @@ export default () => {
         alt=""
       />
       {/* Login with Spotify button Logo */}
-      <a>LOGIN WITH SPOTIFY</a>
+      <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
     </div>
   )
 }
