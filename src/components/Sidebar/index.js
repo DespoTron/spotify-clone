@@ -8,6 +8,7 @@ import { useDataLayerValue } from '../../../src/DataLayer';
 
 export default () => {
   const [{ playlists }, dispatch] = useDataLayerValue();
+  console.log('playlists:', playlists);
 
   return (
     <div className="sidebar">
