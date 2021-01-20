@@ -9,6 +9,10 @@
   padding: 20px;
 }
 
+.footer__right * .MuiSlider-root {
+  color: green;
+}
+
 .footer__left {
   flex: 0.3;
   display: flex;
