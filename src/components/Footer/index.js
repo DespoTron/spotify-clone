@@ -13,7 +13,15 @@ export default () => {
   return (
     <div className="footer">
       <div className="footer__left">
-        <p>Album and song details</p>
+        <img
+          className="footer__albumLogo"
+          src="https://upload.wikimedia.org/wikiped"
+          alt=""
+        />
+        <div className="footer__songInfo">
+          <h4>Yeah!</h4>
+          <p>Usher</p>
+        </div>
       </div>
 
       <div className="footer__center">
