@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles.css';
-import { Sidebar, Body } from '../../components';
+import { Sidebar, Body, Footer } from '../../components';
 
 export default ({ spotify }) => {
   return (
@@ -11,7 +11,7 @@ export default ({ spotify }) => {
         {/* Sidebar */}
         {/* Body */}
       </div>
-
+      <Footer />
       {/* Footer */}
     </div>
   );
