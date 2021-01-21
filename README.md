@@ -1,3 +1,18 @@
+# Spotify Clone App
+
+A Spotify clone built using React JS with User Authentication. A single page application using tools such as:
+
+<ul>
+  <li>Context API</li>
+  <li>Material UI</li>
+  <li>Flexbox (Css)</li>
+  <li>Spotify API</li>
+</ul>
+
+# Live Running Application
+
+Soon to come!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
