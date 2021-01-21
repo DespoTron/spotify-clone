@@ -13,6 +13,18 @@ A Spotify clone built using React JS with User Authentication. A single page app
 
 Soon to come!
 
+# Stretch Goals
+
+<ul>
+<li>Be able to play songs</li>
+<li>Be able to search for artist</li>
+<li>Improve functionality of buttons</li>
+</ul>
+
+## Screen Shots of Spotify Clone App
+
+!["Main Screen"](https://github.com/DespoTron/spotify-clone/blob/master/docs/SpotifyClone.png?raw=true)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
