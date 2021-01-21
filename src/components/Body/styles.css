@@ -31,6 +31,10 @@
   font-size: 14px;
 }
 
+.body__songs {
+  margin: 20px -30px;
+}
+
 .body__icons {
   display: flex;
   align-items: center;
