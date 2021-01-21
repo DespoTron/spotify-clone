@@ -21,19 +21,19 @@ export default ({ spotify }) => {
           <h2>Discover Weekly</h2>
           <p>{discover_weekly?.description}</p>
         </div>
+      </div>
 
-        <div className="body__songs">
-          <div className="body__icons">
-            <PlayCircleFilledIcon className="body__shuffle" />
-            <FavoriteIcon fontSize="large" />
-            <MoreHorizIcon />
-          </div>
-
-          {/* List of songs */}
-          {discover_weekly?.tracks.items.map((item) => (
-            <SongRow track={item.track} />
-          ))}
+      <div className="body__songs">
+        <div className="body__icons">
+          <PlayCircleFilledIcon className="body__shuffle" />
+          <FavoriteIcon fontSize="large" />
+          <MoreHorizIcon />
         </div>
+
+        {/* List of songs */}
+        {discover_weekly?.tracks.items.map((item) => (
+          <SongRow track={item.track} />
+        ))}
       </div>
     </div>
   );
