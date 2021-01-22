@@ -11,7 +11,7 @@ A Spotify clone built using React JS with User Authentication. A single page app
 
 # Live Running Application
 
-Soon to come!
+You can find a live running application deployed on heroku [here](https://spotify-clone-application.herokuapp.com/).
 
 # Stretch Goals
 
