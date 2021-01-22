@@ -28,6 +28,25 @@ export default ({ spotify }) => {
       });
   };
 
+  const playSong = (id) => {
+    spotify
+      .play({
+        uris: [`spotify:track:${id}`],
+      })
+      .then((response) => {
+        spotify.getMyCurrentPlayingTrack().then((res) => {
+          dispatch({
+            type: 'SET_ITEM',
+            item: res.item,
+          });
+          dispatch({
+            type: 'SET_PLAYING',
+            playing: true,
+          });
+        });
+      });
+  };
+
   return (
     <div className="body">
       <Header spotify={spotify} />
@@ -43,14 +62,16 @@ export default ({ spotify }) => {
 
       <div className="body__songs">
         <div className="body__icons">
-          <PlayCircleFilledIcon className="body__shuffle" />
+          <PlayCircleFilledIcon
+            className="body__shuffle"
+            onclick={playPlaylist}
+          />
           <FavoriteIcon fontSize="large" />
           <MoreHorizIcon />
         </div>
 
-        {/* List of songs */}
         {discover_weekly?.tracks.items.map((item) => (
-          <SongRow track={item.track} />
+          <SongRow playSong={playSong} track={item.track} />
         ))}
       </div>
     </div>
