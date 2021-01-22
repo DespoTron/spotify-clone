@@ -2,17 +2,15 @@ import React from 'react';
 import './styles.css';
 import { Header, SongRow } from '../../components';
 import { useDataLayerValue } from 'data/DataLayer';
-//import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-//import FavoriteIcon from '@material-ui/icons/Favorite';
-//import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
-import {
-  PlayCircleFilledIcon,
-  FavoriteIcon,
-  MoreHorizIcon,
-} from '@material-ui/icons/';
+import { useSoundLayerValue } from 'data/SoundLayer';
+import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { useSoundLayerValue } from 'data/SoundLayer';
 
 export default ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();
+  const [{ playing, volume }, soundDispatch] = useSoundLayerValue();
 
   const playPlaylist = (id) => {
     spotify

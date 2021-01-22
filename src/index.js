@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { DataLayer, SoundLayer } from './data/DataLayer';
+import { DataLayer, SoundLayer } from './data';
 import reducer, { initialState } from './data/reducer';
+import soundReducer, { soundInitialState } from './data/soundReducer';
 
 ReactDOM.render(
   <React.StrictMode>
