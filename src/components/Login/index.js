@@ -1,11 +1,10 @@
-import React from 'react'
-import './styles.css'
-import { loginUrl } from '../../service/spotify'
+import React from 'react';
+import './styles.css';
+import { loginUrl } from '../../service/spotify';
 
 export default () => {
   return (
     <div className="login">
-      {/* Spotify Logo */}
       <img
         src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg"
         alt=""
@@ -13,5 +12,5 @@ export default () => {
       {/* Login with Spotify button Logo */}
       <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
     </div>
-  )
-}
+  );
+};

@@ -8,11 +8,8 @@ export default ({ spotify }) => {
       <div className="player__body">
         <Sidebar />
         <Body spotify={spotify} />
-        {/* Sidebar */}
-        {/* Body */}
       </div>
       <Footer />
-      {/* Footer */}
     </div>
   );
 };

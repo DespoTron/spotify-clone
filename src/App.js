@@ -24,6 +24,7 @@ function App() {
       // so we can communicate back and forth between
       // spotify and our React app
       spotify.setAccessToken(_token);
+
       spotify.getMe().then((user) => {
         dispatch({
           type: 'SET_USER',
@@ -44,12 +45,25 @@ function App() {
           discover_weekly: response,
         });
       });
+
+      spotify.getMyTopArtists().then((response) => {
+        dispatch({
+          type: 'SET_TOP_ARTISTS',
+          top_artists: response,
+        });
+
+        dispatch({
+          type: 'SET_SPOTIFY',
+          spotify: spotify,
+        });
+      });
     }
-  }, []);
+  }, [token, dispatch]);
 
   return (
     <div className="app">
-      {token ? <Player spotify={spotify} /> : <Login />}
+      {!token && <Login />}
+      {token && <Player spotify={spotify} />}
     </div>
   );
 }
