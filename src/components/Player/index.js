@@ -9,7 +9,7 @@ export default ({ spotify }) => {
         <Sidebar />
         <Body spotify={spotify} />
       </div>
-      <Footer spotify={spotify} />
+      <Footer />
     </div>
   );
 };

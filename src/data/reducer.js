@@ -4,8 +4,10 @@ export const initialState = {
   playing: false,
   item: null,
   token: null,
+  current_playlist: null,
   spotify: null,
-  discover_weekly: null,
+  tracks: null,
+  track: null,
   top_artists: null,
 };
 
@@ -33,10 +35,16 @@ const reducer = (state, action) => {
         playlists: action.playlists,
       };
 
-    case 'SET_DISCOVER_WEEKLY':
+    case 'SET_CURRENT_PLAYLIST':
+      let currentPlaylist = null;
+      state.playlists.items.forEach((playlist) => {
+        if (playlist.id === action.id) {
+          currentPlaylist = playlist;
+        }
+      });
       return {
         ...state,
-        discover_weekly: action.discover_weekly,
+        current_playlist: currentPlaylist,
       };
 
     case 'SET_PLAYING':
@@ -62,6 +70,19 @@ const reducer = (state, action) => {
         ...state,
         spotify: action.spotify,
       };
+
+    case 'SET_TRACKS':
+      return {
+        ...state,
+        tracks: action.tracks,
+      };
+
+    case 'SET_TRACK':
+      return {
+        ...state,
+        track: action.track,
+      };
+
     default:
       return state;
   }

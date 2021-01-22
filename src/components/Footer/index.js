@@ -10,77 +10,117 @@ import PauseCircleOutlineIcon from '@material-ui/icons/PauseCircleOutline';
 import PlaylistPlayIcon from '@material-ui/icons/PlaylistPlay';
 import { Grid, Slider } from '@material-ui/core';
 import { useDataLayerValue } from 'data/DataLayer';
+import { useSoundLayerValue } from 'data/SoundLayer';
 
 export default ({ spotify }) => {
-  const [{ token, item, playing }, dispatch] = useDataLayerValue();
+  const [{ track, tracks }, dispatch] = useDataLayerValue();
+  const [
+    { audio, playing, volume, repeat, shuffle },
+    soundDispatch,
+  ] = useSoundLayerValue();
 
-  useEffect(() => {
-    spotify.getMyCurrentPlaybackState().then((response) => {
-      console.log(response);
-
-      dispatch({
-        type: 'SET_PLAYING',
-        playing: response.is_playing,
-      });
-
-      dispatch({
-        type: 'SET_ITEM',
-        item: response.item,
-      });
+  const startPlaying = () => {
+    soundDispatch({
+      type: 'SET_PLAYING',
+      playing: true,
     });
-  }, [spotify]);
+    soundDispatch({
+      type: 'SET_VOLUME',
+      volume: volume / 100,
+    });
+  };
 
-  const handlePlayPause = () => {
-    if (playing) {
-      spotify.pause();
-      dispatch({
-        type: 'SET_PLAYING',
-        playing: false,
-      });
-    } else {
-      spotify.play();
-      dispatch({
-        type: 'SET_PLAYING',
-        playing: true,
-      });
+  const stopPlaying = () => {
+    soundDispatch({
+      type: 'STOP_PLAYING',
+      playing: false,
+    });
+  };
+
+  const setRepeat = () => {
+    if (!repeat && shuffle) {
+      setShuffle();
     }
-  };
-
-  const skipNext = () => {
-    spotify.skipToNext();
-    spotify.getMyCurrentPlayingTrack().then((r) => {
-      dispatch({
-        type: 'SET_ITEM',
-        item: r.item,
-      });
-      dispatch({
-        type: 'SET_PLAYING',
-        playing: true,
-      });
+    soundDispatch({
+      type: 'SET_REPEAT',
+      repeat: !repeat,
     });
   };
 
-  const skipPrevious = () => {
-    spotify.skipToPrevious();
-    spotify.getMyCurrentPlayingTrack().then((r) => {
-      dispatch({
-        type: 'SET_ITEM',
-        item: r.item,
-      });
-      dispatch({
-        type: 'SET_PLAYING',
-        playing: true,
-      });
+  const setShuffle = () => {
+    if (!shuffle && repeat) {
+      setRepeat();
+    }
+    soundDispatch({
+      type: 'SET_SHUFFLE',
+      shuffle: !shuffle,
     });
   };
+
+  const handleChange = (event, value) => {
+    soundDispatch({
+      type: 'SET_VOLUME',
+      volume: volume / 100,
+    });
+  };
+
+  if (audio) {
+    audio.onended = () => {
+      if (shuffle) {
+        while (true) {
+          let randomTrackNumber = Math.floor(
+            Math.random() * tracks.items.length
+          );
+          let randomTrack = tracks.items[randomTrackNumber].track;
+          if (track !== randomTrack) {
+            dispatch({
+              type: 'SET_TRACK',
+              track: randomTrack,
+            });
+
+            let wasPlaying = playing;
+            soundDispatch({
+              type: 'SET_PLAYING',
+              playing: false,
+            });
+
+            let audio = new Audio(randomTrack.preview_url);
+            audio.loop = repeat;
+            soundDispatch({
+              type: 'SET_AUDIO',
+              audio: audio,
+            });
+
+            if (wasPlaying) {
+              soundDispatch({
+                type: 'SET_PLAYING',
+                playing: true,
+              });
+            }
+
+            document.title = `${randomTrack.name} · ${randomTrack.artists
+              .map((artist) => artist.name)
+              .join(', ')}`;
+            break;
+          }
+        }
+      }
+      if (!shuffle && !repeat) {
+        soundDispatch({
+          type: 'SET_PLAYING',
+          playing: false,
+        });
+      }
+    };
+  }
 
   return (
     <div className="footer">
       <div className="footer__left">
         <img
           className="footer__albumLogo"
-          src={item?.album.images[0].url}
-          alt={item?.name}
+          src={track ? track.album.images[0].url : ''}
+          alt=""
         />
         {item ? (
           <div className="footer__songInfo">
