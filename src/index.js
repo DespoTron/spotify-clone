@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { DataLayer } from './data/DataLayer';
+import { DataLayer, SoundLayer } from './data/DataLayer';
 import reducer, { initialState } from './data/reducer';
 
 ReactDOM.render(
   <React.StrictMode>
     <DataLayer initialState={initialState} reducer={reducer}>
-      <App />
+      <SoundLayer initialState={soundInitialState} reducer={soundReducer}>
+        <App />
+      </SoundLayer>
     </DataLayer>
   </React.StrictMode>,
   document.getElementById('root')

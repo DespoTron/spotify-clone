@@ -9,7 +9,7 @@ import {
   PlayCircleFilledIcon,
   FavoriteIcon,
   MoreHorizIcon,
-} from '@material-ui/icons';
+} from '@material-ui/icons/';
 
 export default ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();
