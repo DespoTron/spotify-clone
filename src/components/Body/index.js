@@ -8,7 +8,25 @@ import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 
 export default ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();
-  console.log('discover_weekly:', discover_weekly);
+
+  const playPlaylist = (id) => {
+    spotify
+      .play({
+        context_uri: `spotify:playlist:37i9dQZEVXcSu9RzgfqQF1`,
+      })
+      .then((response) => {
+        spotify.getMyCurrentPlayingTrack().then((res) => {
+          dispatch({
+            type: 'SET_ITEM',
+            item: res.item,
+          });
+          dispatch({
+            type: 'SET_PLAYING',
+            playing: true,
+          });
+        });
+      });
+  };
 
   return (
     <div className="body">
