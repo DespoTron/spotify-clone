@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getTokenFromUrl } from './service/spotify';
 import './App.css';
 import { Login, Player } from './components';
