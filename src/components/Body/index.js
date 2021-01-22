@@ -1,10 +1,15 @@
 import React from 'react';
 import './styles.css';
 import { Header, SongRow } from '../../components';
-import { useDataLayerValue } from 'DataLayer';
-import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
-import FavoriteIcon from '@material-ui/icons/Favorite';
-import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import { useDataLayerValue } from 'data/DataLayer';
+//import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
+//import FavoriteIcon from '@material-ui/icons/Favorite';
+//import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
+import {
+  PlayCircleFilledIcon,
+  FavoriteIcon,
+  MoreHorizIcon,
+} from '@material-ui/icons';
 
 export default ({ spotify }) => {
   const [{ discover_weekly }, dispatch] = useDataLayerValue();

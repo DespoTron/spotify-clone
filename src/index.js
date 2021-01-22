@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { DataLayer } from './DataLayer';
-import reducer, { initialState } from './reducer';
+import { DataLayer } from './data/DataLayer';
+import reducer, { initialState } from './data/reducer';
 
 ReactDOM.render(
   <React.StrictMode>

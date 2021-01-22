@@ -1,10 +1,11 @@
 import React from 'react';
 import './styles.css';
 import { SidebarOption } from '../../components';
-import HomeIcon from '@material-ui/icons/Home';
-import SearchIcon from '@material-ui/icons/Search';
-import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
-import { useDataLayerValue } from '../../../src/DataLayer';
+//import HomeIcon from '@material-ui/icons/Home';
+//import SearchIcon from '@material-ui/icons/Search';
+//import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
+import { useDataLayerValue } from '../../data/DataLayer';
+import { HomeIcon, SearchIcon, LibraryMusicIcon } from '@material-ui/icons';
 
 export default () => {
   const [{ playlists }, dispatch] = useDataLayerValue();
