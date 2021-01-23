@@ -195,7 +195,13 @@ export default ({ spotify }) => {
             <VolumeDownIcon />
           </Grid>
           <Grid item xs>
-            <Slider aria-labelledby="continuous-slider" />
+            <Slider
+              aria-labelledby="continuous-slider"
+              valueLabelDisplay="off"
+              onChange={handleChange}
+              min={0}
+              max={100}
+            />
           </Grid>
         </Grid>
       </div>

@@ -23,9 +23,16 @@ export default () => {
       <br />
       <strong className="sidebar__title">PLAYLISTS</strong>
       <hr />
-      {playlists?.items?.map((playlist) => (
-        <SidebarOption title={playlist.name} />
-      ))}
+      {playlists?.items?.map((playlist) => {
+        return (
+          <SidebarOption
+            spotify={spotify}
+            title={playlist.name}
+            id={playlist.id}
+            key={playlist.id}
+          />
+        );
+      })}
     </div>
   );
 };
