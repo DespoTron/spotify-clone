@@ -5,17 +5,12 @@ export const initialState = {
   item: null,
   token: null,
   current_playlist: null,
-  spotify: null,
   tracks: null,
   track: null,
-  top_artists: null,
 };
 
 const reducer = (state, action) => {
-  console.log(action);
-
   // Action -> type, [payload]
-
   switch (action.type) {
     case 'SET_USER':
       return {
@@ -45,30 +40,6 @@ const reducer = (state, action) => {
       return {
         ...state,
         current_playlist: action.currentPlaylist,
-      };
-
-    case 'SET_PLAYING':
-      return {
-        ...state,
-        playing: action.playing,
-      };
-
-    case 'SET_ITEM':
-      return {
-        ...state,
-        item: action.item,
-      };
-
-    case 'SET_TOP_ARTISTS':
-      return {
-        ...state,
-        top_artists: action.top_artists,
-      };
-
-    case 'SET_SPOTIFY':
-      return {
-        ...state,
-        spotify: action.spotify,
       };
 
     case 'SET_TRACKS':

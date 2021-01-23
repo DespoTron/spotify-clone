@@ -3,8 +3,8 @@
 
 export const authEndpoint = 'https://accounts.spotify.com/authorize';
 
-const redirectUri = 'https://spotify-clone-application.herokuapp.com/';
-
+const redirectUri = window.location.origin + '/';
+//https://spotify-clone-application.herokuapp.com/
 const clientId = '1f9da3b324bb487697c8ef42dca0d73e';
 
 const scopes = [
