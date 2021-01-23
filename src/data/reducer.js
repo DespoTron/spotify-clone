@@ -44,7 +44,7 @@ const reducer = (state, action) => {
       });
       return {
         ...state,
-        current_playlist: currentPlaylist,
+        current_playlist: action.currentPlaylist,
       };
 
     case 'SET_PLAYING':
