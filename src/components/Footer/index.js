@@ -64,6 +64,34 @@ export default ({ spotify }) => {
     });
   };
 
+  const skipNext = () => {
+    spotify.skipToNext();
+    spotify.getMyCurrentPlayingTrack().then((r) => {
+      dispatch({
+        type: 'SET_ITEM',
+        item: r.item,
+      });
+      dispatch({
+        type: 'SET_PLAYING',
+        playing: true,
+      });
+    });
+  };
+
+  const skipPrevious = () => {
+    spotify.skipToPrevious();
+    spotify.getMyCurrentPlayingTrack().then((r) => {
+      dispatch({
+        type: 'SET_ITEM',
+        item: r.item,
+      });
+      dispatch({
+        type: 'SET_PLAYING',
+        playing: true,
+      });
+    });
+  };
+
   if (audio) {
     audio.onended = () => {
       if (shuffle) {
@@ -122,37 +150,40 @@ export default ({ spotify }) => {
           src={track ? track.album.images[0].url : ''}
           alt=""
         />
-        {item ? (
-          <div className="footer__songInfo">
-            <h4>{item.name}</h4>
-            <p>{item.artists.map((artist) => artist.name).join(', ')}</p>
-          </div>
-        ) : (
-          <div className="footer__songInfo">
-            <h4>No song is playing</h4>
-            <p>...</p>
-          </div>
-        )}
+        <div className="footer__songInfo">
+          <h4>{track ? track.name : 'No song selected'}</h4>
+          <p>
+            {track
+              ? track.artists.map((artist) => artist.name).join(', ')
+              : null}
+          </p>
+        </div>
       </div>
 
       <div className="footer__center">
-        <ShuffleIcon className="footer__green" />
-        <SkipPreviousIcon onClick={skipNext} className="footer__icon" />
+        <ShuffleIcon
+          onClick={track ? setShuffle : null}
+          className={shuffle ? 'footer_green' : 'footer__icon'}
+        />
+        <SkipPreviousIcon onClikc={skipNext} className="footer__icon" />
         {playing ? (
           <PauseCircleOutlineIcon
-            onClick={handlePlayPause}
+            onClick={track ? stopPlaying : null}
             fontSize="large"
             className="footer__icon"
           />
         ) : (
           <PlayCircleOutlineIcon
-            onClick={handlePlayPause}
+            onClick={track ? startPlaying : null}
             fontSize="large"
             className="footer__icon"
           />
         )}
         <SkipNextIcon onClick={skipPrevious} className="footer_icon" />
-        <RepeatIcon className="footer__green" />
+        <RepeatIcon
+          onClick={track ? setRepeat : null}
+          className={repeat ? 'footer_green' : 'footer__icon'}
+        />
       </div>
 
       <div className="footer__right">
