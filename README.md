@@ -24,4 +24,4 @@ You can find a live running application deployed on heroku [https://spotify-clon
 
 ## Screen Shot of UI
 
-!["Main Screen"](https://github.com/DespoTron/spotify-clone/blob/master/docs/SpotifyClone.ng)
+!["Main Screen"](https://github.com/DespoTron/spotify-clone/blob/master/docs/demo.png?raw=true)
