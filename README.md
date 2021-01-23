@@ -23,7 +23,7 @@ You can find a live running application deployed on heroku [here](https://spotif
 
 ## Screen Shots of Spotify Clone App
 
-!["Main Screen"](https://github.com/DespoTron/spotify-clone/blob/master/docs/SpotifyClone.png?raw=true)
+!["Main Screen"]()
 
 # Getting Started with Create React App
 
