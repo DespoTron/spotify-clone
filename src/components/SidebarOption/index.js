@@ -22,7 +22,11 @@ export default ({ title, Icon }) => {
   return (
     <div className="sidebarOption">
       {Icon && <Icon className="sidebarOption__icon" />}
-      {Icon ? <h4>{title}</h4> : <p onClick={(e) => changePlaylist(id, e)}>{title</p>}
+      {Icon ? (
+        <h4>{title}</h4>
+      ) : (
+        <p onClick={(e) => changePlaylist(id, e)}>{title}</p>
+      )}
     </div>
   );
 };
