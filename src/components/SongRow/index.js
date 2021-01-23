@@ -1,8 +1,7 @@
-import { useDataLayerValue } from 'data/DataLayer';
-import { useSoundLayerValue } from 'data/SoundLayer';
 import React from 'react';
 import './styles.css';
-import { useDataLayerValue, useSoundLayerValue } from 'data';
+import { useDataLayerValue } from 'data/DataLayer';
+import { useSoundLayerValue } from 'data/SoundLayer';
 
 export default ({ track }) => {
   const [{}, dispatch] = useDataLayerValue();

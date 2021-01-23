@@ -7,7 +7,6 @@ import PlayCircleFilledIcon from '@material-ui/icons/PlayCircleFilled';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import PauseCircleFilledIcon from '@material-ui/icons/PauseCircleFilled';
-import { useSoundLayerValue } from 'data/SoundLayer';
 
 export default ({ spotify }) => {
   const [{ current_playlist, tracks, track }, dispatch] = useDataLayerValue();

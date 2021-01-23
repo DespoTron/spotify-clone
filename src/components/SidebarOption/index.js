@@ -1,7 +1,6 @@
 import { useDataLayerValue } from 'data/DataLayer';
 import React from 'react';
 import './styles.css';
-import { useDataLayerValue } from 'data/DataLayer';
 
 export default ({ title, Icon }) => {
   const [{}, dispatch] = useDataLayerValue();
