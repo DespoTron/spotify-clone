@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import { useDataLayerValue } from './data/DataLayer';
-import { useSoundLayerValue } from './data/SoundLayer';
+import { DataLayer } from './data/DataLayer';
+import { SoundLayer } from './data/SoundLayer';
 import reducer, { initialState } from './data/reducer';
 import soundReducer, { soundInitialState } from './data/soundReducer';
 
