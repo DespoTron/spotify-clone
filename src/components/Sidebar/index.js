@@ -6,9 +6,8 @@ import SearchIcon from '@material-ui/icons/Search';
 import LibraryMusicIcon from '@material-ui/icons/LibraryMusic';
 import { useDataLayerValue } from '../../data/DataLayer';
 
-export default () => {
+export default ({ spotify }) => {
   const [{ playlists }, dispatch] = useDataLayerValue();
-  console.log('playlists:', playlists);
 
   return (
     <div className="sidebar">
