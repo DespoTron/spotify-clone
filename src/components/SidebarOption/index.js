@@ -2,7 +2,7 @@ import { useDataLayerValue } from 'data/DataLayer';
 import React from 'react';
 import './styles.css';
 
-export default ({ title, Icon }) => {
+export default ({ spotify, title, id, Icon }) => {
   const [{}, dispatch] = useDataLayerValue();
 
   const changePlaylist = (id, e) => {
